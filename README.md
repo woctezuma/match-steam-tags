@@ -19,7 +19,37 @@ pip install steamtags
 
 ## Usage
 
-TODO
+### Load genres and tags from a local cache, if available. Otherwise, download them.
+
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.load()
+```
+
+### Download genres and tags based on Top 100 games, with respect to the number of players in the last two weeks.
+
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.download(data_source='top100in2weeks')
+```
+
+### Download genres and tags based on Top 100 games, with respect to the number of players since March 2009.
+
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.download(data_source='top100forever')
+```
+
+### Download genres and tags based on Top 100 games, with respect to the estimated number of owners.
+
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.download(data_source='top100owned')
+```
 
 <!-- Definitions -->
 
@@ -37,4 +67,4 @@ TODO
 [codecov-image]: <https://codecov.io/gh/woctezuma/match-steam-tags/branch/master/graph/badge.svg>
 
 [codacy]: <https://www.codacy.com/app/woctezuma/match-steam-tags>
-[codacy-image]: <https://api.codacy.com/project/badge/Grade/TODO>
+[codacy-image]: <https://api.codacy.com/project/badge/Grade/99ed16e3606947e391ace1e1910305c4>
