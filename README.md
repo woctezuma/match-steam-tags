@@ -51,6 +51,10 @@ import steamtags
 genres_dict, tags_dict = steamtags.download(data_source='top100owned')
 ```
 
+## References
+
+-   An exhaustive list of tags can be found in [`steam-labs-recommender`](https://github.com/woctezuma/steam-labs-recommender).
+
 <!-- Definitions -->
 
 [pypi]: https://pypi.python.org/pypi/steamtags
