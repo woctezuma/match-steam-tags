@@ -7,6 +7,7 @@ setup(
     name='steamtags',
     packages=['steamtags'],
     install_requires=[
+        'steamspypi',
     ],
     version='0.1.0',
     description='Steam Tags on PyPI',
