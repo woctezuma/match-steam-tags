@@ -60,8 +60,9 @@ genres_dict, tags_dict = steamtags.download(data_source='top100owned')
 [pypi]: https://pypi.python.org/pypi/steamtags
 [pypi-image]: https://badge.fury.io/py/steamtags.svg
 
-[build]: <https://travis-ci.org/woctezuma/match-steam-tags>
-[build-image]: <https://travis-ci.org/woctezuma/match-steam-tags.svg?branch=master>
+[build]: <https://github.com/woctezuma/match-steam-tags/actions>
+[build-image]: <https://github.com/woctezuma/match-steam-tags/workflows/Python package/badge.svg?branch=master>
+[publish-image]: <https://github.com/woctezuma/match-steam-tags/workflows/Upload Python Package/badge.svg?branch=master>
 
 [pyup]: <https://pyup.io/repos/github/woctezuma/match-steam-tags/>
 [dependency-image]: <https://pyup.io/repos/github/woctezuma/match-steam-tags/shield.svg>
