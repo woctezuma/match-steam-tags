@@ -19,36 +19,72 @@ pip install steamtags
 
 ## Usage
 
-### Load genres and tags from a local cache, if available. Otherwise, download them.
+### Load genres and tags
 
+Ideally, data is loaded from a local cache.
+
+Data is downloaded if the local cache is:
+-   either unavailable,
+-   or obsolete, i.e. downloaded on a previous day.
+
+#### Using GameDataCrunch
+
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.load(website='gamedatacrunch')
+```
+
+GameDataCrunch is the default website option, so an equivalent call would be:
 ```python
 import steamtags
 
 genres_dict, tags_dict = steamtags.load()
 ```
 
-### Download genres and tags based on Top 100 games, with respect to the number of players in the last two weeks.
+#### Using SteamSpy
 
 ```python
 import steamtags
 
-genres_dict, tags_dict = steamtags.download(data_source='top100in2weeks')
+genres_dict, tags_dict = steamtags.load(website='steamspy')
 ```
 
-### Download genres and tags based on Top 100 games, with respect to the number of players since March 2009.
+### Download genres and tags
+
+#### Using GameDataCrunch
 
 ```python
 import steamtags
 
-genres_dict, tags_dict = steamtags.download(data_source='top100forever')
+genres_dict, tags_dict = steamtags.download(website='gamedatacrunch')
 ```
 
-### Download genres and tags based on Top 100 games, with respect to the estimated number of owners.
+#### Using SteamSpy (`top100in2weeks`)
 
+Based on Top 100 games, with respect to the number of players in the last two weeks:
 ```python
 import steamtags
 
-genres_dict, tags_dict = steamtags.download(data_source='top100owned')
+genres_dict, tags_dict = steamtags.download(website='steamspy', data_source='top100in2weeks')
+```
+
+#### Using SteamSpy (`top100forever`)
+
+Based on Top 100 games, with respect to the number of players since March 2009:
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.download(website='steamspy', data_source='top100forever')
+```
+
+#### Using SteamSpy (`top100owned`)
+
+Based on Top 100 games, with respect to the estimated number of owners:
+```python
+import steamtags
+
+genres_dict, tags_dict = steamtags.download(website='steamspy', data_source='top100owned')
 ```
 
 ## References
