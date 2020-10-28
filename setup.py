@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name='steamtags',
-    version='0.1.1',
+    version='0.1.2',
     author='Wok',
     author_email='wok@tuta.io',
     description='Steam Tags on PyPI',
@@ -13,7 +13,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url='https://github.com/woctezuma/match-steam-tags',
-    download_url='https://github.com/woctezuma/match-steam-tags/archive/0.1.1.tar.gz',
+    download_url='https://github.com/woctezuma/match-steam-tags/archive/0.1.2.tar.gz',
     packages=setuptools.find_packages(),
     install_requires=[
         'steamspypi',
