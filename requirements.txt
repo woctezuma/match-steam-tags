@@ -1,1 +1,2 @@
+gamedatacrunch==0.0.3
 steamspypi==1.0.0
