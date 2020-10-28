@@ -27,26 +27,10 @@ Data is downloaded (and cached) if the local cache is:
 -   either unavailable,
 -   or obsolete, i.e. downloaded on a previous day.
 
-#### A. Using GameDataCrunch
-
 ```python
 import steamtags
 
-genres_dict, tags_dict = steamtags.load(website='gamedatacrunch')
-
-# Alternatively:
-genres_dict, tags_dict = steamtags.load(website='gdc')
-
-# Or, because GameDataCrunch is the default website option:
 genres_dict, tags_dict = steamtags.load()
-```
-
-#### B. Using SteamSpy
-
-```python
-import steamtags
-
-genres_dict, tags_dict = steamtags.load(website='steamspy')
 ```
 
 ### 2. Download genres and tags
@@ -58,11 +42,11 @@ SteamSpy provides several Top-100 game rankings:
 -   `top100forever`, with respect to the number of players since March 2009
 -   `top100owned`, with respect to the estimated number of owners
 
-These can be used to retrieve and aggregate genres and tags, such as:
+These rankings can be used to retrieve and aggregate genres and tags, such as:
 ```python
 import steamtags
 
-genres_dict, tags_dict = steamtags.download(website='steamspy', data_source='top100in2weeks')
+genres_dict, tags_dict = steamtags.download(data_source='top100in2weeks')
 ```
 
 ## References
