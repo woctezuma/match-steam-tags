@@ -54,8 +54,18 @@ genres_dict, tags_dict = steamtags.download(data_source='top100owned')
 ## References
 
 -   An exhaustive list of tags can be found in [`steam-labs-recommender`](https://github.com/woctezuma/steam-labs-recommender).
+-   [`gamedatacrunch`][gamedatacrunch-api]@[PyPI][gamedatacrunch-pypi]: an API to download data through [GameDataCrunch API][gamedatacrunch].
+-   [`steamspypi`][steamspy-api]@[PyPI][steamspy-pypi]: an API to download data through [SteamSpy API][steamspy-api-docs].
 
 <!-- Definitions -->
+
+[gamedatacrunch-api]: <https://github.com/woctezuma/gamedatacrunch>
+[gamedatacrunch-pypi]: <https://pypi.org/project/gamedatacrunch/>
+[gamedatacrunch]: <https://www.gamedatacrunch.com>
+
+[steamspy-api]: <https://github.com/woctezuma/steamspypi>
+[steamspy-pypi]: <https://pypi.org/project/steamspypi/>
+[steamspy-api-docs]: <https://steamspy.com/api.php>
 
 [pypi]: https://pypi.python.org/pypi/steamtags
 [pypi-image]: https://badge.fury.io/py/steamtags.svg
