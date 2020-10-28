@@ -1,6 +1,6 @@
 import json
 
-from .download import download_genre_and_tag_keys, populate_genres, populate_tags
+from .download_with_steamspy import download_genre_and_tag_keys, populate_genres, populate_tags
 from .utils import get_file_name_for_clustering_of_app_ids_by_genre
 from .utils import get_file_name_for_clustering_of_app_ids_by_tag
 from .utils import get_file_name_for_list_of_genres

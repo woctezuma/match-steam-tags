@@ -1,2 +1,1 @@
-from .download import download
-from .load import load
+from .wrapper import download, load
