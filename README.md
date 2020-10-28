@@ -19,7 +19,7 @@ pip install steamtags
 
 ## Usage
 
-### 1. Load genres and tags
+### Load genres and tags
 
 Ideally, data is loaded from a local cache.
 
@@ -33,7 +33,7 @@ import steamtags
 genres_dict, tags_dict = steamtags.load()
 ```
 
-### 2. Download genres and tags
+### Download genres and tags
 
 **Caveat**: in the use case described below, data is not locally cached!
 
@@ -42,7 +42,7 @@ SteamSpy provides several Top-100 game rankings:
 -   `top100forever`, with respect to the number of players since March 2009
 -   `top100owned`, with respect to the estimated number of owners
 
-These rankings can be used to retrieve and aggregate genres and tags, such as:
+These rankings can be used to retrieve and aggregate genres and tags, as such:
 ```python
 import steamtags
 
