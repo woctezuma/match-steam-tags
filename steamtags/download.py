@@ -1,33 +1,15 @@
 import json
 import time
-from pathlib import Path
 
 import steamspypi
 
-
-def get_data_folder():
-    data_path = 'data/'
-    Path(data_path).mkdir(parents=True, exist_ok=True)
-    return data_path
-
-
-def get_file_name_for_list_of_genres():
-    return get_data_folder() + 'genre_keys.json'
+from .utils import get_file_name_for_clustering_of_app_ids_by_genre
+from .utils import get_file_name_for_clustering_of_app_ids_by_tag
+from .utils import get_file_name_for_list_of_genres
+from .utils import get_file_name_for_list_of_tags
 
 
-def get_file_name_for_clustering_of_app_ids_by_genre():
-    return get_data_folder() + 'genre_values.json'
-
-
-def get_file_name_for_list_of_tags():
-    return get_data_folder() + 'tag_keys.json'
-
-
-def get_file_name_for_clustering_of_app_ids_by_tag():
-    return get_data_folder() + 'tag_values.json'
-
-
-def download_genre_and_tag_keys(data_source='top100in2weeks'):
+def download_genre_and_tag_keys(data_source='top100in2weeks', num_apps=100):
     # Genres and tags downloaded from SteamSpy API
 
     print('Downloading lists of genres and tags for {}.'.format(data_source))
@@ -74,27 +56,6 @@ def download_genre_and_tag_keys(data_source='top100in2weeks'):
         print('\n'.join(tags), file=f)
 
     return genres, tags
-
-
-def load_genre_keys():
-    try:
-        with open(get_file_name_for_list_of_genres(), 'r', encoding='utf8') as f:
-            genres = [l.strip() for l in f.readlines()]
-
-    except FileNotFoundError:
-        genres, _ = download_genre_and_tag_keys()
-
-    return genres
-
-
-def load_tag_keys():
-    try:
-        with open(get_file_name_for_list_of_tags(), 'r', encoding='utf8') as f:
-            tags = [l.strip() for l in f.readlines()]
-    except FileNotFoundError:
-        _, tags = download_genre_and_tag_keys()
-
-    return tags
 
 
 def populate_genres(genres):
@@ -151,28 +112,6 @@ def populate_tags(tags):
     return tags_dict
 
 
-def load_genre_values():
-    try:
-        with open(get_file_name_for_clustering_of_app_ids_by_genre(), 'r', encoding='utf8') as f:
-            genres_dict = json.load(f)
-    except FileNotFoundError:
-        genres = load_genre_keys()
-        genres_dict = populate_genres(genres)
-
-    return genres_dict
-
-
-def load_tag_values():
-    try:
-        with open(get_file_name_for_clustering_of_app_ids_by_tag(), 'r', encoding='utf8') as f:
-            tags_dict = json.load(f)
-    except FileNotFoundError:
-        tags = load_tag_keys()
-        tags_dict = populate_tags(tags)
-
-    return tags_dict
-
-
 def download(data_source='top100in2weeks'):
     genres, tags = download_genre_and_tag_keys(data_source)
 
@@ -180,14 +119,3 @@ def download(data_source='top100in2weeks'):
     tags_dict = populate_tags(tags)
 
     return genres_dict, tags_dict
-
-
-def load():
-    genres_dict = load_genre_values()
-    tags_dict = load_tag_values()
-
-    return genres_dict, tags_dict
-
-
-if __name__ == '__main__':
-    genres_dict, tags_dict = load()
