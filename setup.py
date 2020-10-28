@@ -16,7 +16,6 @@ setuptools.setup(
     download_url='https://github.com/woctezuma/match-steam-tags/archive/0.1.2.tar.gz',
     packages=setuptools.find_packages(),
     install_requires=[
-        'gamedatacrunch',
         'steamspypi',
     ],
     test_suite='nose.collector',
