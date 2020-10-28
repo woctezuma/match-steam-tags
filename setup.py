@@ -1,27 +1,31 @@
-from distutils.core import setup
-
-# noinspection PyUnresolvedReferences
 import setuptools
 
-setup(
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+
+setuptools.setup(
     name='steamtags',
-    packages=['steamtags'],
+    version='0.1.1',
+    author='Wok',
+    author_email='wok@tuta.io',
+    description='Steam Tags on PyPI',
+    keywords=['steam', 'steamtags', 'tags', 'api'],
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url='https://github.com/woctezuma/match-steam-tags',
+    download_url='https://github.com/woctezuma/match-steam-tags/archive/0.1.1.tar.gz',
+    packages=setuptools.find_packages(),
     install_requires=[
         'steamspypi',
     ],
-    version='0.1.1',
-    description='Steam Tags on PyPI',
-    long_description='Steam Tags: an API to match Steam tags with appIDs, written in Python 3.',
-    long_description_content_type='text/x-rst',
-    author='Wok',
-    author_email='wok@tuta.io',
-    url='https://github.com/woctezuma/match-steam-tags',
-    download_url='https://github.com/woctezuma/match-steam-tags/archive/0.1.1.tar.gz',
-    keywords=['steam', 'steamtags', 'tags', 'api'],
+    test_suite='nose.collector',
+    tests_require=['nose'],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Topic :: Games/Entertainment',
-        'License :: OSI Approved :: MIT License',
-        'Programming Language :: Python :: 3',
+        "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
     ],
+    python_requires='>=3',
 )
