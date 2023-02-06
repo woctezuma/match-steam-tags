@@ -1,13 +1,15 @@
 import json
 
-from .download import download_genre_and_tag_keys
-from .download_tag import populate_tags
-from .utils import get_file_name_for_clustering_of_app_ids_by_tag
-from .utils import get_file_name_for_list_of_tags
+from steamtags.download import download_genre_and_tag_keys
+from steamtags.download_tag import populate_tags
+from steamtags.utils import (
+    get_file_name_for_clustering_of_app_ids_by_tag,
+    get_file_name_for_list_of_tags,
+)
 
 
 def parse_tag_keys():
-    with open(get_file_name_for_list_of_tags(), "r", encoding="utf8") as f:
+    with open(get_file_name_for_list_of_tags(), encoding="utf8") as f:
         tags = [l.strip() for l in f.readlines()]
 
     return tags
@@ -26,7 +28,7 @@ def load_tag_values():
     fname = get_file_name_for_clustering_of_app_ids_by_tag()
 
     try:
-        with open(fname, "r", encoding="utf8") as f:
+        with open(fname, encoding="utf8") as f:
             tags_dict = json.load(f)
     except FileNotFoundError:
         tags = load_tag_keys()

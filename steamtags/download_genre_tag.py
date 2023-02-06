@@ -1,8 +1,10 @@
 import time
 
-from .steamspy import download_top100, download_appdetails
-from .utils import get_file_name_for_list_of_genres
-from .utils import get_file_name_for_list_of_tags
+from steamtags.steamspy import download_appdetails, download_top100
+from steamtags.utils import (
+    get_file_name_for_list_of_genres,
+    get_file_name_for_list_of_tags,
+)
 
 
 def find_corresponding_genres_and_tags(app_ids):
@@ -21,7 +23,7 @@ def find_corresponding_genres_and_tags(app_ids):
         # Allowed poll rate - 4 requests per second.
         # Reference: https://steamspy.com/api.php
         if counter % 4 == 0:
-            print("{}/{}".format(counter, len(app_ids)))
+            print(f"{counter}/{len(app_ids)}")
             time.sleep(1)
 
     genres = sorted(genres)
@@ -31,7 +33,7 @@ def find_corresponding_genres_and_tags(app_ids):
 
 
 def download_genre_and_tag_keys(data_source="top100in2weeks"):
-    print("Downloading lists of genres and tags for {}.".format(data_source))
+    print(f"Downloading lists of genres and tags for {data_source}.")
 
     # Retrieve top 100 games played in the past 2 weeks
     data = download_top100(request=data_source)

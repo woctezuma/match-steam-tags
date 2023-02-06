@@ -11,8 +11,8 @@ class TestSteamTagsMethods(unittest.TestCase):
         sentence = "[request = {}] #genres = {} & #tags = {}"
         print(sentence.format(data_source, len(genres_dict), len(tags_dict)))
 
-        self.assertGreater(len(genres_dict), 0)
-        self.assertGreater(len(tags_dict), 0)
+        assert len(genres_dict) > 0
+        assert len(tags_dict) > 0
 
     def test_download_top100forever(self):
         data_source = "top100forever"
@@ -21,8 +21,8 @@ class TestSteamTagsMethods(unittest.TestCase):
         sentence = "[request = {}] #genres = {} & #tags = {}"
         print(sentence.format(data_source, len(genres_dict), len(tags_dict)))
 
-        self.assertGreater(len(genres_dict), 0)
-        self.assertGreater(len(tags_dict), 0)
+        assert len(genres_dict) > 0
+        assert len(tags_dict) > 0
 
     def test_download_top100owned(self):
         data_source = "top100owned"
@@ -31,8 +31,8 @@ class TestSteamTagsMethods(unittest.TestCase):
         sentence = "[request = {}] #genres = {} & #tags = {}"
         print(sentence.format(data_source, len(genres_dict), len(tags_dict)))
 
-        self.assertGreater(len(genres_dict), 0)
-        self.assertGreater(len(tags_dict), 0)
+        assert len(genres_dict) > 0
+        assert len(tags_dict) > 0
 
     def test_download(self):
         genres_dict, tags_dict = steamtags.download()
@@ -40,14 +40,14 @@ class TestSteamTagsMethods(unittest.TestCase):
         sentence = "[default request] #genres = {} & #tags = {}"
         print(sentence.format(len(genres_dict), len(tags_dict)))
 
-        self.assertGreater(len(genres_dict), 0)
-        self.assertGreater(len(tags_dict), 0)
+        assert len(genres_dict) > 0
+        assert len(tags_dict) > 0
 
     def test_load(self):
         # Download
-        self.assertTrue(steamtags.load())
+        assert steamtags.load()
         # Load from cache
-        self.assertTrue(steamtags.load())
+        assert steamtags.load()
 
 
 if __name__ == "__main__":

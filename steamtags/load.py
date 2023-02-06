@@ -1,5 +1,5 @@
-from .load_genre import load_genre_values
-from .load_tag import load_tag_values
+from steamtags.load_genre import load_genre_values
+from steamtags.load_tag import load_tag_values
 
 
 def load():

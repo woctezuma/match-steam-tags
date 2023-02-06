@@ -1,8 +1,8 @@
 import json
 import time
 
-from .steamspy import download_tag
-from .utils import get_file_name_for_clustering_of_app_ids_by_tag
+from steamtags.steamspy import download_tag
+from steamtags.utils import get_file_name_for_clustering_of_app_ids_by_tag
 
 
 def populate_tags(tags):
@@ -13,12 +13,12 @@ def populate_tags(tags):
     for counter, current_tag in enumerate(tags):
         data = download_tag(tag=current_tag)
 
-        tags_dict[current_tag] = [int(app_id) for app_id in data.keys()]
+        tags_dict[current_tag] = [int(app_id) for app_id in data]
 
         # Allowed poll rate - 4 requests per second.
         # Reference: https://steamspy.com/api.php
         if counter % 4 == 0:
-            print("{}/{}".format(counter, len(tags)))
+            print(f"{counter}/{len(tags)}")
             time.sleep(1)
 
     fname = get_file_name_for_clustering_of_app_ids_by_tag()

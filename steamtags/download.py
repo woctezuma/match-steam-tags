@@ -1,6 +1,6 @@
-from .download_genre import populate_genres
-from .download_genre_tag import download_genre_and_tag_keys
-from .download_tag import populate_tags
+from steamtags.download_genre import populate_genres
+from steamtags.download_genre_tag import download_genre_and_tag_keys
+from steamtags.download_tag import populate_tags
 
 
 def download(data_source="top100in2weeks"):
